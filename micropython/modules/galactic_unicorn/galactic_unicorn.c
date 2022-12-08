@@ -21,6 +21,8 @@ MP_DEFINE_CONST_FUN_OBJ_KW(Channel_play_tone_obj, 2, Channel_play_tone);
 MP_DEFINE_CONST_FUN_OBJ_1(GalacticUnicorn___del___obj, GalacticUnicorn___del__);
 MP_DEFINE_CONST_FUN_OBJ_1(GalacticUnicorn_clear_obj, GalacticUnicorn_clear);
 MP_DEFINE_CONST_FUN_OBJ_2(GalacticUnicorn_update_obj, GalacticUnicorn_update);
+MP_DEFINE_CONST_FUN_OBJ_1(GalacticUnicorn_dummy_obj, GalacticUnicorn_dummy);
+MP_DEFINE_CONST_FUN_OBJ_KW(GalacticUnicorn_set_pixel_obj, 5, GalacticUnicorn_set_pixel);
 MP_DEFINE_CONST_FUN_OBJ_2(GalacticUnicorn_set_brightness_obj, GalacticUnicorn_set_brightness);
 MP_DEFINE_CONST_FUN_OBJ_1(GalacticUnicorn_get_brightness_obj, GalacticUnicorn_get_brightness);
 MP_DEFINE_CONST_FUN_OBJ_2(GalacticUnicorn_adjust_brightness_obj, GalacticUnicorn_adjust_brightness);
@@ -60,34 +62,36 @@ STATIC const mp_rom_map_elem_t Channel_locals_dict_table[] = {
 };
 
 STATIC const mp_rom_map_elem_t GalacticUnicorn_locals_dict_table[] = {
-    { MP_ROM_QSTR(MP_QSTR___del__), MP_ROM_PTR(&GalacticUnicorn___del___obj) },
-    { MP_ROM_QSTR(MP_QSTR_clear), MP_ROM_PTR(&GalacticUnicorn_clear_obj) },
-    { MP_ROM_QSTR(MP_QSTR_update), MP_ROM_PTR(&GalacticUnicorn_update_obj) },
-    { MP_ROM_QSTR(MP_QSTR_set_brightness), MP_ROM_PTR(&GalacticUnicorn_set_brightness_obj) },
-    { MP_ROM_QSTR(MP_QSTR_get_brightness), MP_ROM_PTR(&GalacticUnicorn_get_brightness_obj) },
-    { MP_ROM_QSTR(MP_QSTR_adjust_brightness), MP_ROM_PTR(&GalacticUnicorn_adjust_brightness_obj) },
-    { MP_ROM_QSTR(MP_QSTR_set_volume), MP_ROM_PTR(&GalacticUnicorn_set_volume_obj) },
-    { MP_ROM_QSTR(MP_QSTR_get_volume), MP_ROM_PTR(&GalacticUnicorn_get_volume_obj) },
-    { MP_ROM_QSTR(MP_QSTR_adjust_volume), MP_ROM_PTR(&GalacticUnicorn_adjust_volume_obj) },
-    { MP_ROM_QSTR(MP_QSTR_light), MP_ROM_PTR(&GalacticUnicorn_light_obj) },
-    { MP_ROM_QSTR(MP_QSTR_is_pressed), MP_ROM_PTR(&GalacticUnicorn_is_pressed_obj) },
-    { MP_ROM_QSTR(MP_QSTR_play_sample), MP_ROM_PTR(&GalacticUnicorn_play_sample_obj) },
-    { MP_ROM_QSTR(MP_QSTR_play_synth), MP_ROM_PTR(&GalacticUnicorn_play_synth_obj) },
-    { MP_ROM_QSTR(MP_QSTR_stop_playing), MP_ROM_PTR(&GalacticUnicorn_stop_playing_obj) },
-    { MP_ROM_QSTR(MP_QSTR_synth_channel), MP_ROM_PTR(&GalacticUnicorn_synth_channel_obj) },
+    {MP_ROM_QSTR(MP_QSTR___del__), MP_ROM_PTR(&GalacticUnicorn___del___obj)},
+    {MP_ROM_QSTR(MP_QSTR_clear), MP_ROM_PTR(&GalacticUnicorn_clear_obj)},
+    {MP_ROM_QSTR(MP_QSTR_update), MP_ROM_PTR(&GalacticUnicorn_update_obj)},
+    {MP_ROM_QSTR(MP_QSTR_dummy), MP_ROM_PTR(&GalacticUnicorn_dummy_obj)},
+    {MP_ROM_QSTR(MP_QSTR_set_pixel), MP_ROM_PTR(&GalacticUnicorn_set_pixel_obj)},
+    {MP_ROM_QSTR(MP_QSTR_set_brightness), MP_ROM_PTR(&GalacticUnicorn_set_brightness_obj)},
+    {MP_ROM_QSTR(MP_QSTR_get_brightness), MP_ROM_PTR(&GalacticUnicorn_get_brightness_obj)},
+    {MP_ROM_QSTR(MP_QSTR_adjust_brightness), MP_ROM_PTR(&GalacticUnicorn_adjust_brightness_obj)},
+    {MP_ROM_QSTR(MP_QSTR_set_volume), MP_ROM_PTR(&GalacticUnicorn_set_volume_obj)},
+    {MP_ROM_QSTR(MP_QSTR_get_volume), MP_ROM_PTR(&GalacticUnicorn_get_volume_obj)},
+    {MP_ROM_QSTR(MP_QSTR_adjust_volume), MP_ROM_PTR(&GalacticUnicorn_adjust_volume_obj)},
+    {MP_ROM_QSTR(MP_QSTR_light), MP_ROM_PTR(&GalacticUnicorn_light_obj)},
+    {MP_ROM_QSTR(MP_QSTR_is_pressed), MP_ROM_PTR(&GalacticUnicorn_is_pressed_obj)},
+    {MP_ROM_QSTR(MP_QSTR_play_sample), MP_ROM_PTR(&GalacticUnicorn_play_sample_obj)},
+    {MP_ROM_QSTR(MP_QSTR_play_synth), MP_ROM_PTR(&GalacticUnicorn_play_synth_obj)},
+    {MP_ROM_QSTR(MP_QSTR_stop_playing), MP_ROM_PTR(&GalacticUnicorn_stop_playing_obj)},
+    {MP_ROM_QSTR(MP_QSTR_synth_channel), MP_ROM_PTR(&GalacticUnicorn_synth_channel_obj)},
 
-    { MP_ROM_QSTR(MP_QSTR_WIDTH), MP_ROM_INT(53) },
-    { MP_ROM_QSTR(MP_QSTR_HEIGHT), MP_ROM_INT(11) },
+    {MP_ROM_QSTR(MP_QSTR_WIDTH), MP_ROM_INT(53)},
+    {MP_ROM_QSTR(MP_QSTR_HEIGHT), MP_ROM_INT(11)},
 
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_A), MP_ROM_INT(0) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_B), MP_ROM_INT(1) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_C), MP_ROM_INT(3) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_D), MP_ROM_INT(6) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_SLEEP), MP_ROM_INT(27) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_VOLUME_UP), MP_ROM_INT(7) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_VOLUME_DOWN), MP_ROM_INT(8) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_BRIGHTNESS_UP), MP_ROM_INT(21) },
-    { MP_ROM_QSTR(MP_QSTR_SWITCH_BRIGHTNESS_DOWN), MP_ROM_INT(26) },
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_A), MP_ROM_INT(0)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_B), MP_ROM_INT(1)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_C), MP_ROM_INT(3)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_D), MP_ROM_INT(6)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_SLEEP), MP_ROM_INT(27)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_VOLUME_UP), MP_ROM_INT(7)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_VOLUME_DOWN), MP_ROM_INT(8)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_BRIGHTNESS_UP), MP_ROM_INT(21)},
+    {MP_ROM_QSTR(MP_QSTR_SWITCH_BRIGHTNESS_DOWN), MP_ROM_INT(26)},
 };
 
 STATIC MP_DEFINE_CONST_DICT(Channel_locals_dict, Channel_locals_dict_table);

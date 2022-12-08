@@ -423,7 +423,40 @@ extern mp_obj_t GalacticUnicorn_update(mp_obj_t self_in, mp_obj_t graphics_in) {
     return mp_const_none;
 }
 
-extern mp_obj_t GalacticUnicorn_set_pixel(mp_obj_t self_in, mp_obj_t x, mp_obj_t y, mp_obj_t r, mp_obj_t g, mp_obj_t b) {
+extern mp_obj_t GalacticUnicorn_dummy(mp_obj_t self_in) {
+    return mp_const_none;
+}
+
+extern mp_obj_t GalacticUnicorn_set_pixel(size_t n_args, const mp_obj_t *pos_args, mp_map_t *kw_args);
+{
+    enum
+    {
+        ARG_self,
+        ARG_x,
+        ARG_y,
+        ARG_r,
+        ARG_g,
+        ARG_b
+    };
+    static const mp_arg_t allowed_args[] = {
+        {MP_QSTR_, MP_ARG_REQUIRED | MP_ARG_OBJ},
+        {MP_QSTR_x, MP_ARG_REQUIRED | MP_ARG_INT},
+        {MP_QSTR_y, MP_ARG_REQUIRED | MP_ARG_INT},
+        {MP_QSTR_r, MP_ARG_REQUIRED | MP_ARG_INT},
+        {MP_QSTR_g, MP_ARG_REQUIRED | MP_ARG_INT},
+        {MP_QSTR_b, MP_ARG_REQUIRED | MP_ARG_INT}
+    };
+
+    // Parse args.
+    mp_arg_val_t args[MP_ARRAY_SIZE(allowed_args)];
+    mp_arg_parse_all(n_args, pos_args, kw_args, MP_ARRAY_SIZE(allowed_args), allowed_args, args);
+
+    int x = args[ARG_x].u_int;
+    int y = args[ARG_y].u_int;
+    int r = args[ARG_r].u_int;
+    int g = args[ARG_g].u_int;
+    int b = args[ARG_b].u_int;
+
     _GalacticUnicorn_obj_t *self = MP_OBJ_TO_PTR2(self_in, _GalacticUnicorn_obj_t);
 
     self->galactic->set_pixel(mp_obj_get_int(x), mp_obj_get_int(y), mp_obj_get_int(r), mp_obj_get_int(g), mp_obj_get_int(b));
