@@ -31,7 +31,7 @@ extern mp_obj_t GalacticUnicorn_clear(mp_obj_t self_in);
 
 extern mp_obj_t GalacticUnicorn_update(mp_obj_t self_in, mp_obj_t graphics_in);
 extern mp_obj_t GalacticUnicorn_dummy(mp_obj_t self_in);
-extern mp_obj_t GalacticUnicorn_set_pixel(mp_obj_t self_in, mp_obj_t x, mp_obj_t y, mp_obj_t r, mp_obj_t g, mp_obj_t b);
+extern mp_obj_t GalacticUnicorn_set_pixel(size_t n_args, const mp_obj_t *pos_args, mp_map_t *kw_args);
 
 extern mp_obj_t GalacticUnicorn_set_brightness(mp_obj_t self_in, mp_obj_t value);
 extern mp_obj_t GalacticUnicorn_get_brightness(mp_obj_t self_in);
