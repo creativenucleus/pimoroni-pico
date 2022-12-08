@@ -450,15 +450,15 @@ extern mp_obj_t GalacticUnicorn_set_pixel(size_t n_args, const mp_obj_t *pos_arg
     mp_arg_val_t args[MP_ARRAY_SIZE(allowed_args)];
     mp_arg_parse_all(n_args, pos_args, kw_args, MP_ARRAY_SIZE(allowed_args), allowed_args, args);
 
+    _GalacticUnicorn_obj_t *self = MP_OBJ_TO_PTR2(args[ARG_self].u_obj, _GalacticUnicorn_obj_t);
+
     int x = args[ARG_x].u_int;
     int y = args[ARG_y].u_int;
     int r = args[ARG_r].u_int;
     int g = args[ARG_g].u_int;
     int b = args[ARG_b].u_int;
 
-    _GalacticUnicorn_obj_t *self = MP_OBJ_TO_PTR2(self_in, _GalacticUnicorn_obj_t);
-
-    self->galactic->set_pixel(mp_obj_get_int(x), mp_obj_get_int(y), mp_obj_get_int(r), mp_obj_get_int(g), mp_obj_get_int(b));
+    self->galactic->set_pixel(x, y, r, g, b);
 
     return mp_const_none;
 }
