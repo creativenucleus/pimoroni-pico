@@ -427,8 +427,7 @@ extern mp_obj_t GalacticUnicorn_dummy(mp_obj_t self_in) {
     return mp_const_none;
 }
 
-extern mp_obj_t GalacticUnicorn_set_pixel(size_t n_args, const mp_obj_t *pos_args, mp_map_t *kw_args);
-{
+extern mp_obj_t GalacticUnicorn_set_pixel(size_t n_args, const mp_obj_t *pos_args, mp_map_t *kw_args) {
     enum
     {
         ARG_self,
