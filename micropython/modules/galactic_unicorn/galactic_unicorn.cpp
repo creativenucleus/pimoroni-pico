@@ -433,7 +433,9 @@ extern mp_obj_t GalacticUnicorn_set_pixel(mp_obj_t self_in, mp_obj_t x, mp_obj_t
 
 extern mp_obj_t GalacticUnicorn_set_brightness(mp_obj_t self_in, mp_obj_t value) {
     _GalacticUnicorn_obj_t *self = MP_OBJ_TO_PTR2(self_in, _GalacticUnicorn_obj_t);
+ 
     self->galactic->set_brightness(mp_obj_get_float(value));
+ 
     return mp_const_none;
 }
 
